@@ -6,8 +6,17 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7657228A1A9F2DEC003A2158 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 765722891A9F2DEC003A2158 /* libz.dylib */; };
+		7657228C1A9F2E41003A2158 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7657228B1A9F2E41003A2158 /* libiconv.dylib */; };
+		768620771A9E247E0054E949 /* hfscompressor.c in Sources */ = {isa = PBXBuildFile; fileRef = 768620761A9E247E0054E949 /* hfscompressor.c */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		765722891A9F2DEC003A2158 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		7657228B1A9F2E41003A2158 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		7686206F1A9E24550054E949 /* libhfscompressor.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libhfscompressor.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		768620761A9E247E0054E949 /* hfscompressor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hfscompressor.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -15,6 +24,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7657228C1A9F2E41003A2158 /* libiconv.dylib in Frameworks */,
+				7657228A1A9F2DEC003A2158 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -24,6 +35,9 @@
 		768620661A9E24550054E949 = {
 			isa = PBXGroup;
 			children = (
+				7657228B1A9F2E41003A2158 /* libiconv.dylib */,
+				765722891A9F2DEC003A2158 /* libz.dylib */,
+				768620761A9E247E0054E949 /* hfscompressor.c */,
 				768620701A9E24550054E949 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +116,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				768620771A9E247E0054E949 /* hfscompressor.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,20 +200,30 @@
 		768620741A9E24550054E949 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "libarchive-3.1.2/.libs/libarchive.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
+				USER_HEADER_SEARCH_PATHS = "/System/Library/Frameworks/JavaVM.framework/Headers libarchive-3.1.2/libarchive";
 			};
 			name = Debug;
 		};
 		768620751A9E24550054E949 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "libarchive-3.1.2/.libs/libarchive.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
+				USER_HEADER_SEARCH_PATHS = "/System/Library/Frameworks/JavaVM.framework/Headers libarchive-3.1.2/libarchive";
 			};
 			name = Release;
 		};
@@ -221,6 +246,7 @@
 				768620751A9E24550054E949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
